@@ -1,38 +1,685 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 .App {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  max-width: 1440px;
+}
+.landingPage {
+  width: 100%;
+  min-height: 100vh;
+  background: navy;
+}
+.landingNavSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landingNav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 15px;
+}
+.leftNavContent {
+  display: flex;
+}
+.navLogoName {
+  margin-left: 8px;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+}
+.rightNav .rightNavLink {
+  text-decoration: none;
+}
+.landingButton {
+  background-color: transparent;
+  color: #faf9fb;
+  border: solid 1px white;
+  padding: 5px 22px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.landingMain {
+  margin-top: 100px;
+}
+.landingMainContent {
+  min-width: 400px;
+  margin-left: 200px;
+}
+.landingMain .landingMainContent h1 {
+  width: 600px;
+  font-size: 64px;
+  font-weight: 700;
+  color: #faf9fb;
+}
+.landingMain .landingMainContent h1 .landingLearn {
+  color: greenyellow;
+}
+.landingMain .landingMainContent h1 .landingSchedule {
+  color: greenyellow;
+}
+/*Login page*/
+.Login {
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(2, 2, 136, 0.8);
+  margin: 0;
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+.loginSection {
+  width: 70%;
+  height: 81vh;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+.loginSection .loginCancel {
+  width: 100%;
+  float: right;
+  text-decoration: none;
+  cursor: pointer;
+}
+.loginSection .loginCancel .cancel {
+  color: gray;
+  font-size: 32px;
+  float: right;
+}
+.loginFormSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 50px 20px 30px;
+  width: 100%;
+}
+.lefttLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+.lefttLogin h3 {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.lefttLogin img {
+  width: 350px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.rightLogin {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.rightLogin .logo {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+.rightLogin .logo img {
+  width: 100%;
+}
+.rightLogin .studentLogin {
+  width: 100%;
+  margin-top: 20px;
+}
+.studentForm {
+  width: 100%;
+}
+.studentForm .email, .studentForm .password {
+  display: flex;
+  width: 80%;
+  padding-bottom: 5px;
+  border-bottom: solid 2px gray;
+  margin-bottom: 30px;
+}
+.studentForm .email input, .studentForm .password input {
+  width: 87%;
+  border: none;
+  outline: none;
+  color: gray;
+  font-size: 22px;
+}
+.studentForm .email input::placeholder, .studentForm .password input::placeholder {
+  opacity: .5;
+  letter-spacing: 3px;
+}
+.studentForm .email i .formIcon, .studentForm .password i .formIcon {
+  font-size: 32px;
+  color: gray;
+}
+.studentForm .formButton {
+  width: 100%;
+}
+.loginButton {
+  width: 80%;
+  background: navy;
+  color: white;
+  font-size: 22px;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.loginButton:hover {
+  transition: .5s;
+  background: transparent;
+  border: solid 1px rgb(2,0,36);
+  color: rgb(2,0,36);
+}
+.loginGoogle {
+  display: flex;
+  margin-bottom: 20px;
+  width: 80%;
+  justify-content: space-between;
+  border: solid 1px rgb(2,0,36);
+  padding: 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.loginGoogle:hover {
+  background: rgb(63,235,123);
+  background: linear-gradient(90deg, rgba(63,235,123,1) 35%, rgba(63,170,235,1) 100%);
+  transition: 5s;
+  border: none;
+}
+.loginGoogleButton {
+  font-size: 18px;
+}
+.google {
+  font-size: 24px;
+}
+
+/*Login page ends here*/
+/*sidebar*/
+.navBar .smallNav, .navMobile {
+  display: none;
+  visibility: hidden;
+}
+.sidebar {
+  width: 200px;
+  min-height: 100vh;
+  border-top-right-radius: 100px;
+  background: rgba(39, 39, 151, 0.5);
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-left: 10px;
+  transform: translate(0%);
+}
+.logoSidebar {
+  display: flex;
+}
+.logoSidebar h4 {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.sidebarNav {
+  margin-left: 8px;
+  margin-top: 30px;
+}
+.navLinks {
+  text-decoration: none;
+  color: white;
+}
+.active .navLinkActive {
+  width: 100%;
+  background-color: rgba(23, 30, 70, 0.7);
+  padding: 0 0 0 5px;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  right: 0;
+}
+.navLinks .navLinkActive {
+  display: flex;
+  cursor: pointer;
+}
+.navIcon {
+  color: white;
+  font-size: 22px;
+  margin-top: 20px;
+  margin-right: 18px;
+}
+.logOut {
+  color: white !important;
+  display: flex;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.logOut .logOutIcon {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-right: 18px;
+  color: white;
+}
+/*sidebar ends here */
+.dashboard {  
+  width: 100vww;
+  min-height: 100vh;
+  display: flex;
+  background-color: rgb(23, 30, 70);
+}
+.dashboardContainer {
+  width: calc(100% - 200px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboardContainer .dashboardContent {
+  width: 80%;
+  height: 20em;
+  background: rgb(63,235,123);
+  background: linear-gradient(90deg, rgba(63,235,123,1) 35%, rgb(19, 116, 177) 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+}
+.leftDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.leftDashboard h2 {
+  color: white;
+  font-size: 42px;
+}
+.leftDashboard span {
+  color: blue;
+  font-size: 32px;
+  font-weight: 700;
+}
+.welcomeUser {
+  line-height: 15px;
+}
+.rightDashboard {
+  margin-left: 40px;
+}
+.rightDashboard .imgBox {
+  width: 400px;
+  position: relative;
+}
+.rightDashboard .imgBox img {
+  width: 100%;
+}
+/*Courses*/
+.courses {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  background-color: rgb(23, 30, 70);
+}
+.coursesContainer {
+  width: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+}
+.coursesContainer h2 {
+  margin: 30px auto;
+  text-align: center;
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+}
+.coursesContainer .courseRender {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-bottom: 40px;
+}
+.courseLink {
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  margin-top: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ text-align: center;
+}
+.eachCourse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.courseLink:nth-child(1), .courseLink:nth-child(3), .courseLink:nth-child(5)  {
+  background-color: rgb(27, 204, 86);
+  color: navy;
+}
+.courseLink:nth-child(2), .courseLink:nth-child(4) {
+  background-color: navy;
+  color: rgb(15, 226, 86);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.eachCourse h5 {
+  text-align: center;
+}
+ /*Single Course*/
+ .singleCourses {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: rgb(23, 30, 70);
+ }
+ .singleCourseContainer {
+  width: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  margin-left: 20px;
+ }
+ .singleLink {
+   text-decoration: none;
+ }
+ .singleCourseBack {
+   width: 100px;
+   background-color: rgb(27, 89, 204);
+   color: white;
+   border-radius: 8px;
+   padding: 5px 7px;
+   font-size: 18px;
+   margin-top: 30px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   text-align: center;
+ }
+ .eachCourseContent {
+   padding-bottom: 40px;
+ } 
+ .contentContainer {
+   color: white;
+   padding-bottom: 30px;
+ }
+ .contentContainer .content {
+   width: 80%;
+   max-width: 90%;
+ }
+ /*Single Course Ends*/
+ /*Profile Page*/
+ .profile {
+   display: flex;
+   background-color: rgb(23, 30, 70);
+   width: 100%;
+   min-height: 100vh;
+ }
+ .profileContainer {
+   width: calc(100% - 220px);
+   padding-left: 40px;
+   margin: 10px 40px;
+   color: white;
+   line-height: 16px;
+ }
+ .profileContent {
+   margin: 50px auto 20px auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ } 
+ .profileContainer .avatar {
+   width: 200px;
+   height: 200px;
+   border-radius: 100vw;
+   object-fit: contain;
+   border: solid 1px rgb(23, 30, 70);
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ }
+ .profileContainer .avatar img {
+   width: 100%;
+   border-radius: 100vw;
+   object-fit: contain;
+ }
+ .profileDetails {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   column-gap: 50px;
+   margin-top: 50px;
+ }
+ .profileDetails .profileNameEmail {
+   width: 40%;
+   height: 70px;
+   border: solid 1px white;
+   border-radius: 10px;
+   padding-left: 5px;
+   padding-top: 5px;
+   line-height: 5px;
+ }
+ .profileDetails .profileNameEmail span {
+   color: greenyellow;
+   font-size: 15px;
+   padding: 7px 5px 1px 5px;
+ }
+ .profileDetails .profileNameEmail h5 {
+   font-size: 18px;
+ }
+ .toggleLogin {
+   color: navy;
+   cursor: pointer;
+   text-align: center;
+ }
+ /*Profile page ends*/
+@media (max-width: 1024px) {
+  .rightDashboard .imgBox {
+    width: 300px;
+    top: -20px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 960px) {
+  .landingMainContent {
+    margin-left: 0;
+  }
+  .loginSection {
+    width: 90%;
+    padding-bottom: 10px;
+  }
+  .loginFormSection {
+    margin-top: 5px;
+    padding-bottom: 10px;
+  }
+  .lefttLogin img {
+    width: 250px;
+  }
+  .rightLogin .studentLogin {
+    margin-top: 5px;
+    padding-bottom: 10px;
+  }
+  .loginGoogle, .loginButton {
+    padding: 10px;
+  }
+  .studentForm .email input::placeholder, .studentForm .password input::placeholder {
+    letter-spacing: 1px;
+  }
+  /*Mobile Sidebar*/
+  .navBar .smallNav, .navMobile {
+    width: 100%;
+    display: flex;
+    visibility: visible;
+  }
+  .navBar .desktopNav, .sidebar {
+    display: none;
+    visibility: hidden;
+  }
+  .navMobile {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+  .openNav {
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    float: right;
+  }
+  .sideMenuBg {
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(0%);
+    z-index: 105;
+    background: rgba(39, 39, 151, 1);
+    transition: .5s;
+    visibility: visible;
+  }
+  .closeSidebar {
+    transform: translateX(200%);
+    transition: .5s;
+  }
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 20px;
+  }
+  .active {
+    width: 100%;
+    background-color: rgba(23, 30, 70, 0.7);
+  }
+  .navLinkActive {
+    margin-bottom: 30px;
+  }
+  .mobileLinks {
+    margin-top: 75px;
+  }
+  /*Mobile Sidebar ends*/
+  .dashboard, .courses, .profile, .singleCourses {
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .dashboardContainer, .singleCourseContainer, .profileContainer, .coursesContainer {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .coursesContainer, .coursesContainer .courseRender {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .profileContainer {
+    margin: 10px auto;
+  }
+  .singleCourseContainer {
+    padding-left: 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: center;
+  }
+  .contentContainer h2 {
+    font-size: 22px;
+  }
+  .dashboardContainer .dashboardContent {
+    width: 90%;
+  }
+  .landingMain .landingMainContent h1 {
+    text-align: center;
+  }
+}
+@media (max-width: 670px) {
+  .leftNavContent {
+    display: flex;
+    margin-top: 10px;
+  }
+  .navLogoName {
+    margin-left: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+  .landingMainContent {
+    min-width: 0;
+  }
+  .landingMain .landingMainContent h1 {
+    width: 100%;
+  }
+  .dashboardContainer {
+    margin: 50px auto;
+  }
+  .dashboardContent {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .welcomeUser {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    line-height: 10px;
+    margin-bottom: 90px;
+  }
+  .leftDashboard h2 {
+    text-align: center;
+  }
+  .rightDashboard .imgBox {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
+@media (max-width:500px) {
+  .loginFormSection {
+    flex-direction: column;
+  }
+  .loginSection {
+    height: 90%;
+  }
+  .lefttLogin { 
+    text-align: center;
+    margin-left: 0;
+    margin-right: 24px;
+    align-items: center;
+  }
+  .rightLogin {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .rightLogin .logo {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    margin-left: 10px;
+  }
+  .loginGoogle, .loginButton {
+    font-size: 18px;
+  }
+  .sideMenuBg {
+    width: 70vw;
+  }
+  .profileDetails {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profileDetails .profileNameEmail {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .profileDetails .profileNameEmail h5 {
+    font-size: 14px;
   }
 }

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { signInWithPopup, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from 'firebase/auth';
+import React, { useRef } from 'react'
+import { signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, provider } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import StudentLogin from './StudentLogin';
@@ -8,19 +8,8 @@ const LoginFunctions = () => {
     const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
-    const [user, setUser] = useState(null);
 
-
-    useState(() => {
-      const unsubscribe = onAuthStateChanged(auth, (res) => {
-        if (res) {
-          setUser(res);
-        } else {
-          setUser(null);
-        }
-      });
-      return unsubscribe;
-    }, []);
+    
     const SignInWithGoogleFunc = (e) => {
         e.preventDefault();
         signInWithPopup(auth, provider)

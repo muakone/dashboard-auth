@@ -3,13 +3,8 @@ import { FaUserAlt } from 'react-icons/fa'
 import { GiPadlock } from 'react-icons/gi'
 import { FcGoogle } from 'react-icons/fc'
 import Button from './Button'
-import { signInWithPopup, signOut } from 'firebase/auth';
-import { auth, provider } from '../firebase';
-import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react'
-import { useUserContext } from './userContext'
 
-const StudentLogin = ({SignInWithGoogleFunc, signInWithEmail, signUpWithEmail, passwordRef, emailRef, handleSignin}) => {
+const StudentLogin = ({SignInWithGoogleFunc, signInWithEmail, signUpWithEmail, passwordRef, emailRef}) => {
     
     const [index, setIndex] = useState(false);
     const toggleIndex = () => {

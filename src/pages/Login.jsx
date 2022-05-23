@@ -1,5 +1,4 @@
 import React from 'react'
-import StudentLogin from '../components/StudentLogin'
 import Logo  from '../images/logo.png'
 import { BsXLg } from 'react-icons/bs'
 import { Link } from 'react-router-dom'

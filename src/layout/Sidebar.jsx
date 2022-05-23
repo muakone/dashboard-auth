@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { MdOutlineSpaceDashboard } from 'react-icons/md'
-import { GrLogout } from 'react-icons/gr'
 import { FaUsers } from 'react-icons/fa'
 import { MdOutlineLogout } from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
@@ -8,24 +7,10 @@ import logo from '../images/logo.png'
 import {signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from 'react-router-dom';
-import {
-  onAuthStateChanged,
-} from "firebase/auth";
 
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (res) => {
-      if (res) {
-        setUser(res);
-      } else {
-        setUser(null);
-      }
-    });
-    return unsubscribe;
-  }, [])
   const logOutUser = () => {
     signOut(auth);
     navigate('/');

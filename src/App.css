@@ -81,7 +81,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 10px 10px;
   box-sizing: border-box;
 }
 .loginSection .loginCancel {
@@ -290,7 +290,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .leftDashboard h2 {
   color: white;
@@ -478,6 +478,9 @@
    color: navy;
    cursor: pointer;
    text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
  }
  /*Profile page ends*/
 @media (max-width: 1024px) {
@@ -492,6 +495,7 @@
   }
   .loginSection {
     width: 90%;
+    height: 85vh;
     padding-bottom: 10px;
   }
   .loginFormSection {
@@ -643,6 +647,9 @@
   }
 }
 @media (max-width:500px) {
+  .leftDashboard span {
+    font-size: 22px;
+  }
   .loginFormSection {
     flex-direction: column;
   }

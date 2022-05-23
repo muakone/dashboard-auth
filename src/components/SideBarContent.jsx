@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdOutlineSpaceDashboard } from 'react-icons/md'
 import { FaUsers } from "react-icons/fa"
 import { MdOutlineLogout } from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
-import {signOut } from "firebase/auth";
+import {signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from 'react-router-dom';
 import { BsXLg } from 'react-icons/bs'
 
 
 const SideBarContent = ({handleShowMenu}) => {
+    const [user, setUser] = useState(null);
+
   const navigate = useNavigate();
+  useState(() => {
+    const unsubscribe = onAuthStateChanged(auth, (res) => {
+      if (res) {
+        setUser(res);
+      } else {
+        setUser(null);
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   const logOutUser = () => {
     signOut(auth);

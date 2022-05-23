@@ -639,6 +639,8 @@
   }
   .leftDashboard h2 {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .rightDashboard .imgBox {
     width: 100%;

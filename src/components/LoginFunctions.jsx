@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, provider } from '../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -6,17 +6,20 @@ import StudentLogin from './StudentLogin';
 
 const LoginFunctions = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    useState(() => {
+    useEffect(() => {
+      setLoading(true);
       const unsubscribe = onAuthStateChanged(auth, (res) => {
         if (res) {
           setUser(res);
         } else {
           setUser(null);
         }
+        setLoading(false);
       });
       return unsubscribe;
     }, []);
@@ -42,17 +45,17 @@ const LoginFunctions = () => {
         };
         /* SignUp Function */
         const signUpUser = (email, password) => {
+          setLoading(true);
             createUserWithEmailAndPassword(auth, email, password)
 
             .then((res) => {
                 console.log(res);
                 navigate('/dashboard');
                 const email = res.user.email;
-                const password = res.password;
                 localStorage.setItem("email", email)
-                localStorage.setItem("password", password)
             })
               .catch((err) => console.log(err))
+              .finally(() => setLoading(false))
           };
 
           const signUpWithEmail = (e) => {
@@ -63,17 +66,17 @@ const LoginFunctions = () => {
           };
         /* SignIn User */
         const signInUser = (email, password) => {
+          setLoading(true);
           signInWithEmailAndPassword(auth, email, password)
 
           .then((res) => {
               console.log(res);
               navigate('/dashboard');
               const email = res.user.email;
-              const password = res.password;
               localStorage.setItem("email", email)
-              localStorage.setItem("password", password)
           })
             .catch((err) => console.log(err))
+            .finally(() => setLoading(false))
         };
 
         const signInWithEmail = (e) => {
@@ -91,7 +94,14 @@ const LoginFunctions = () => {
 
   return (
     <div>
-        <StudentLogin SignInWithGoogleFunc={(e) => SignInWithGoogleFunc(e)} signUpWithEmail={signUpWithEmail} signInWithEmail={signInWithEmail} emailRef={emailRef} passwordRef={passwordRef} handleSignin={handleSignin} />
+        <StudentLogin
+         SignInWithGoogleFunc={(e) => SignInWithGoogleFunc(e)}
+         signUpWithEmail={signUpWithEmail}
+         signInWithEmail={signInWithEmail} 
+         emailRef={emailRef} 
+         passwordRef={passwordRef} 
+         handleSignin={handleSignin}
+         loading={loading} />
     </div>
   )
 }

@@ -67,7 +67,7 @@
 .Login {
   width: 100%;
   min-height: 100vh;
-  background: rgb(2, 2, 136, 0.8);
+  background: rgb(2, 2, 136, 0.9);
   margin: 0;
   padding: 80px 0;
   box-sizing: border-box;
@@ -170,12 +170,6 @@
   text-align: center;
   cursor: pointer;
 }
-.loginButton:hover {
-  transition: .5s;
-  background: transparent;
-  border: solid 1px rgb(2,0,36);
-  color: rgb(2,0,36);
-}
 .loginGoogle {
   display: flex;
   margin-bottom: 20px;
@@ -189,7 +183,7 @@
 .loginGoogle:hover {
   background: rgb(63,235,123);
   background: linear-gradient(90deg, rgba(63,235,123,1) 35%, rgba(63,170,235,1) 100%);
-  transition: 5s;
+  transition: .5s;
   border: none;
 }
 .loginGoogleButton {
@@ -209,7 +203,7 @@
   width: 200px;
   min-height: 100vh;
   border-top-right-radius: 100px;
-  background: rgba(39, 39, 151, 0.5);
+  background: rgba(39, 39, 151, 1);
   height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -317,7 +311,7 @@
 /*Courses*/
 .courses {
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   background-color: rgb(23, 30, 70);
 }
@@ -604,6 +598,7 @@
   .landingMain .landingMainContent h1 {
     text-align: center;
   }
+  
 }
 @media (max-width: 670px) {
   .leftNavContent {

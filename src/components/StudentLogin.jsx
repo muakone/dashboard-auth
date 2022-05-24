@@ -4,13 +4,12 @@ import { GiPadlock } from 'react-icons/gi'
 import { FcGoogle } from 'react-icons/fc'
 import Button from './Button'
 
-const StudentLogin = ({SignInWithGoogleFunc, signInWithEmail, signUpWithEmail, passwordRef, emailRef}) => {
+const StudentLogin = ({SignInWithGoogleFunc, signInWithEmail, signUpWithEmail, passwordRef, emailRef, loading}) => {
     
     const [index, setIndex] = useState(false);
     const toggleIndex = () => {
       setIndex((prevState) => !prevState);
     };
-	
   return (
     <form className='studentForm'>
         <div className='email'>
@@ -32,13 +31,29 @@ const StudentLogin = ({SignInWithGoogleFunc, signInWithEmail, signUpWithEmail, p
             </div>
             {
                 index ? 
-                <div onClick={(e) => signInWithEmail(e)}>
-                    <Button Text={'Login with password'} styles={'loginButton'}  />
+                <div>
+                {
+                    !loading ?
+                    <div onClick={(e) => signInWithEmail(e)}>
+                        <Button Text={'Login with password'} styles={'loginButton'}  />
+                    </div>
+                    :
+                    <Button Text={'Please Wait ....'} styles={'loginButton'} />
+                }
+                    
                 </div>
                 :
-                <div onClick={(e) => signUpWithEmail(e)}>
-                    <Button Text={'Signup with password'} styles={'loginButton'}  />
+                <div>
+                {
+                    !loading ?
+                    <div onClick={(e) => signUpWithEmail(e)}>
+                        <Button Text={'Signup with password'} styles={'loginButton'}  />
+                    </div>
+                    :
+                    <Button Text={'Please Wait ....'} styles={'loginButton'} />
+                }
                 </div>
+                    
             }
             <p onClick={toggleIndex} className='toggleLogin'>
                 {index ? "New user? Click here " : "Already have an acount?"}

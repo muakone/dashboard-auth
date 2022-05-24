@@ -20,6 +20,9 @@ const LoginFunctions = () => {
           setUser(null);
         }
         setLoading(false);
+        localStorage.setItem("name", '')
+        localStorage.setItem("email", '')
+        localStorage.setItem("avatar", '')
       });
       return unsubscribe;
     }, []);

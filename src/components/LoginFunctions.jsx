@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, provider } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import StudentLogin from './StudentLogin';
@@ -43,28 +43,7 @@ const LoginFunctions = () => {
                 console.log(error);
             });
         };
-        /* SignUp Function */
-        const signUpUser = (email, password) => {
-          setLoading(true);
-            createUserWithEmailAndPassword(auth, email, password)
-
-            .then((res) => {
-                console.log(res);
-                navigate('/dashboard');
-                const email = res.user.email;
-                localStorage.setItem("email", email)
-            })
-              .catch((err) => console.log(err))
-              .finally(() => setLoading(false))
-          };
-
-          const signUpWithEmail = (e) => {
-            e.preventDefault();
-            const email = emailRef.current.value;
-            const password = passwordRef.current.value;
-            if (email && password) signUpUser(email, password);  
-          };
-        /* SignIn User */
+        /* SignIn With User */
         const signInUser = (email, password) => {
           setLoading(true);
           signInWithEmailAndPassword(auth, email, password)
@@ -86,21 +65,14 @@ const LoginFunctions = () => {
           if (email && password) signInUser(email, password);  
         };
 
-        const handleSignin = (e) => {
-          e.preventDefault();
-          signUpWithEmail()
-          signInWithEmail()
-        }
 
   return (
     <div>
         <StudentLogin
          SignInWithGoogleFunc={(e) => SignInWithGoogleFunc(e)}
-         signUpWithEmail={signUpWithEmail}
          signInWithEmail={signInWithEmail} 
          emailRef={emailRef} 
          passwordRef={passwordRef} 
-         handleSignin={handleSignin}
          loading={loading} />
     </div>
   )

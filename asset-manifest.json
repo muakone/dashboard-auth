@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/dashboard-auth/static/css/main.f06656a4.css",
-    "main.js": "/dashboard-auth/static/js/main.ca61d35b.js",
+    "main.css": "/dashboard-auth/static/css/main.b2d7a40c.css",
+    "main.js": "/dashboard-auth/static/js/main.3016c155.js",
     "static/js/787.f8f5a804.chunk.js": "/dashboard-auth/static/js/787.f8f5a804.chunk.js",
-    "static/media/student.png": "/dashboard-auth/static/media/student.d14222114c61a31c5dc7.png",
-    "static/media/login.png": "/dashboard-auth/static/media/login.c3900ce30688aa656b18.png",
+    "static/media/student.webp": "/dashboard-auth/static/media/student.f0d6aba55655f59045cd.webp",
+    "static/media/login.webp": "/dashboard-auth/static/media/login.2cd0c7713eae1dc2f211.webp",
     "static/media/undraw-home.svg": "/dashboard-auth/static/media/undraw-home.ec5cc58d96e8a855ff08f11abb4a4063.svg",
+    "static/media/register.svg": "/dashboard-auth/static/media/register.a18e427df467f6374cff35e7816312c0.svg",
     "index.html": "/dashboard-auth/index.html",
-    "main.f06656a4.css.map": "/dashboard-auth/static/css/main.f06656a4.css.map",
-    "main.ca61d35b.js.map": "/dashboard-auth/static/js/main.ca61d35b.js.map",
+    "main.b2d7a40c.css.map": "/dashboard-auth/static/css/main.b2d7a40c.css.map",
+    "main.3016c155.js.map": "/dashboard-auth/static/js/main.3016c155.js.map",
     "787.f8f5a804.chunk.js.map": "/dashboard-auth/static/js/787.f8f5a804.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f06656a4.css",
-    "static/js/main.ca61d35b.js"
+    "static/css/main.b2d7a40c.css",
+    "static/js/main.3016c155.js"
   ]
 }

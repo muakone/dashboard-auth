@@ -1,24 +1,23 @@
-import React from 'react'
-import Sidebar from '../layout/Sidebar'
-import Sitting from '../images/undraw-home.svg'
-import MobileSidebar from '../layout/MobileSidebar'
-
+import React from "react";
+import Sidebar from "../layout/Sidebar";
+import Sitting from "../images/undraw-home.svg";
+import MobileSidebar from "../layout/MobileSidebar";
 
 const Dashboard = () => {
-  const name = localStorage.getItem("name")
-  const email = localStorage.getItem("email")
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
   return (
-    <div className='dashboard'>
+    <div className="dashboard">
       <div className="navBar">
-        <MobileSidebar className='smallNav' />
-        <Sidebar className='desktopNav' />
+        <MobileSidebar className="smallNav" />
+        <Sidebar className="desktopNav" />
       </div>
-      <section className='dashboardContainer'>
+      <section className="dashboardContainer">
         <div className="dashboardContent">
           <div className="leftDashboard">
-            <div className='welcomeUser'>
+            <div className="welcomeUser">
               <h2>Welcome</h2>
-             <span className='userActive'>{name === '' ? email: name}</span>
+              <span className="userActive">{user.displayName} </span>
             </div>
           </div>
           <div className="rightDashboard">
@@ -29,7 +28,7 @@ const Dashboard = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

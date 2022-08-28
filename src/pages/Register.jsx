@@ -2,10 +2,10 @@ import React from "react";
 import Logo from "../images/logo.png";
 import { BsXLg } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import VectorLogin from "../images/login.webp";
-import StudentLogin from "../components/StudentLogin";
+import VectorLogin from "../images/register.svg";
+import StudentRegister from "../components/Register";
 
-const Login = ({ error, runError, setActive }) => {
+const Register = ({ error, runError }) => {
   return (
     <div className="Login">
       <div className="loginSection">
@@ -14,7 +14,7 @@ const Login = ({ error, runError, setActive }) => {
         </Link>
         <section className="loginFormSection">
           <div className="lefttLogin">
-            <h3>Student Login </h3>
+            <h3>Register</h3>
             <img src={VectorLogin} alt="vector login" />
           </div>
           <div className="rightLogin">
@@ -22,11 +22,7 @@ const Login = ({ error, runError, setActive }) => {
               <img src={Logo} alt="logo" />
             </div>
             <div className="studentLogin">
-              <StudentLogin
-                error={error}
-                runError={runError}
-                setActive={setActive}
-              />
+              <StudentRegister error={error} runError={runError} />
             </div>
           </div>
         </section>
@@ -35,4 +31,4 @@ const Login = ({ error, runError, setActive }) => {
   );
 };
 
-export default Login;
+export default Register;

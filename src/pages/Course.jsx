@@ -1,15 +1,15 @@
-import React from 'react'
-import Sidebar from '../layout/Sidebar'
-import { CourseData } from '../components/DataBase'
-import Courses from '../components/Courses'
-import MobileSidebar from '../layout/MobileSidebar'
+import React from "react";
+import Sidebar from "../layout/Sidebar";
+import { CourseData } from "../components/DataBase";
+import Courses from "../components/Courses";
+import MobileSidebar from "../layout/MobileSidebar";
 
 const Course = () => {
   return (
-    <div className='courses'>
+    <div className="courses">
       <div className="navBar">
-        <MobileSidebar className='smallNav' />
-        <Sidebar className='desktopNav' />
+        <MobileSidebar className="smallNav" />
+        <Sidebar className="desktopNav" />
       </div>
       <div className="coursesContainer">
         <h2>Our Courses</h2>
@@ -20,7 +20,7 @@ const Course = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Course
+export default Course;

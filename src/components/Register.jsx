@@ -1,50 +1,39 @@
 import React, { useRef } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
-import { FcGoogle } from "react-icons/fc";
 import Button from "./Button";
-import {
-  signInWithEmailAndPassword,
-  //createUserWithEmailAndPassword,
-  // onAuthStateChanged,
-  //signOut,
-  //updateProfile,
-  //sendPasswordResetEmail,
-  signInWithPopup,
-} from "firebase/auth";
-import { auth, provider } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth, provider } from "../firebase";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../context/UserContext";
-import UseEffect from "../hooks/UseEffect";
-import { MdErrorOutline } from "react-icons/md";
+import { MdEmail, MdErrorOutline } from "react-icons/md";
 
-const StudentLogin = ({ runError, error }) => {
+const StudentRegister = ({ runError, error }) => {
   const [{ loading }, dispatch] = useStateValue();
   const emailRef = useRef();
+  const nameRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
 
-  UseEffect();
-
-  const signInUser = (email, password) => {
+  const registerUser = (email, password, name) => {
     dispatch({
       type: actionTypes.SET_LOADING,
       loading: true,
     });
-    signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("user", JSON.stringify(res.user));
-        JSON.parse(localStorage.getItem("user"));
-        navigate("/dashboard");
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+
+        navigate("/login");
       })
       .catch((err) => {
         const errorCode = err.code;
         const errorMessage = err.message;
         const errorOutput = errorCode.substring(5);
         const editedError = errorOutput.replace(/-/g, " ").toUpperCase();
-        // ..
         runError(editedError);
         console.log("ERROR:", errorCode, errorMessage);
       })
@@ -56,45 +45,34 @@ const StudentLogin = ({ runError, error }) => {
       );
   };
 
-  const signInWithEmail = (e) => {
+  const signUpWithEmail = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    if (email && password) signInUser(email, password);
+    const name = nameRef.current.value;
+    if (email && password && name) registerUser(email, password, name);
   };
 
-  const SignInWithGoogleFunc = (e) => {
-    e.preventDefault();
-    signInWithPopup(auth, provider)
-      .then((res) => {
-        console.log(res);
-        const user = res.user;
-        localStorage.setItem("user", JSON.stringify(user));
-        navigate("/dashboard");
-      })
-      .catch((err) => {
-        const errorCode = err.code;
-        const errorMessage = err.message;
-        const errorOutput = errorCode.substring(5);
-        const editedError = errorOutput.replace(/-/g, " ").toUpperCase();
-        // ..
-        runError(editedError);
-        console.log("ERROR:", errorCode, errorMessage);
-      });
-  };
+  //UseEffect()
 
   return (
     <form className="studentForm">
       {error.err && (
         <div className="error-message">
           <p>{error.message}</p>
-          <MdErrorOutline className="formIcon" />
+          <MdErrorOutline />
         </div>
       )}
+      <div className="text">
+        <input type="text" placeholder="Enter your name" ref={nameRef} />
+        <i>
+          <FaUserAlt className="formIcon" />
+        </i>
+      </div>
       <div className="email">
         <input type="email" placeholder="Enter your email" ref={emailRef} />
         <i>
-          <FaUserAlt className="formIcon" />
+          <MdEmail className="formIcon" />
         </i>
       </div>
       <div className="password">
@@ -108,14 +86,10 @@ const StudentLogin = ({ runError, error }) => {
         </i>
       </div>
       <div className="formButton">
-        <div className="loginGoogle" onClick={(e) => SignInWithGoogleFunc(e)}>
-          <FcGoogle className="google" />
-          <Button Text={"Continue with Google"} styles={"loginGoogleButton"} />
-        </div>
         <div className="btnState">
           {!loading ? (
-            <div onClick={(e) => signInWithEmail(e)}>
-              <Button Text={"Login"} styles={"loginButton"} />
+            <div onClick={(e) => signUpWithEmail(e)}>
+              <Button Text={"Signup with password"} styles={"loginButton"} />
             </div>
           ) : (
             <Button Text={"Please Wait ...."} styles={"loginButton"} />
@@ -123,8 +97,8 @@ const StudentLogin = ({ runError, error }) => {
         </div>
       </div>
       <div className="not-registered">
-        <p>Not registered yet?</p>
-        <Link to="/register" className="not-registered__link">
+        <p>Already have an account?</p>
+        <Link to="/login" className="not-registered__link">
           Click here
         </Link>
       </div>
@@ -132,4 +106,4 @@ const StudentLogin = ({ runError, error }) => {
   );
 };
 
-export default StudentLogin;
+export default StudentRegister;

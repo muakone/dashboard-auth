@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/dashboard-auth/static/css/main.b2d7a40c.css",
-    "main.js": "/dashboard-auth/static/js/main.3016c155.js",
+    "main.css": "/dashboard-auth/static/css/main.446946a5.css",
+    "main.js": "/dashboard-auth/static/js/main.9ab2d462.js",
     "static/js/787.f8f5a804.chunk.js": "/dashboard-auth/static/js/787.f8f5a804.chunk.js",
     "static/media/student.webp": "/dashboard-auth/static/media/student.f0d6aba55655f59045cd.webp",
     "static/media/login.webp": "/dashboard-auth/static/media/login.2cd0c7713eae1dc2f211.webp",
+    "static/media/error-404.svg": "/dashboard-auth/static/media/error-404.bdf1c60c297dc6528f56fe6a382dacdf.svg",
+    "static/media/user.png": "/dashboard-auth/static/media/user.a6143582309785dca610.png",
     "static/media/undraw-home.svg": "/dashboard-auth/static/media/undraw-home.ec5cc58d96e8a855ff08f11abb4a4063.svg",
     "static/media/register.svg": "/dashboard-auth/static/media/register.a18e427df467f6374cff35e7816312c0.svg",
     "index.html": "/dashboard-auth/index.html",
-    "main.b2d7a40c.css.map": "/dashboard-auth/static/css/main.b2d7a40c.css.map",
-    "main.3016c155.js.map": "/dashboard-auth/static/js/main.3016c155.js.map",
+    "main.446946a5.css.map": "/dashboard-auth/static/css/main.446946a5.css.map",
+    "main.9ab2d462.js.map": "/dashboard-auth/static/js/main.9ab2d462.js.map",
     "787.f8f5a804.chunk.js.map": "/dashboard-auth/static/js/787.f8f5a804.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2d7a40c.css",
-    "static/js/main.3016c155.js"
+    "static/css/main.446946a5.css",
+    "static/js/main.9ab2d462.js"
   ]
 }
